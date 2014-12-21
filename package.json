@@ -13,7 +13,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "~4.10.6",
+    "express": "~3.8.x",
     "jade": "~1.8.2",
     "morgan": "~1.5.0",
     "body-parser": "~1.10.0",
