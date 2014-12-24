@@ -36,7 +36,7 @@ angular
         return defered.promise;
       },
 
-      updateCurrentUser: function() {
+      updateCurrentUser: function(newUserData) {
         var defered = $q.defer();
 
         var clone = angular.copy(mvIdentity.currentUser);
@@ -49,6 +49,8 @@ angular
         }, function(response) {
           defered.reject(response.data.reason)
         });
+
+        return defered.promise;
       },
 
       logoutUser: function() {
