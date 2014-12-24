@@ -47,11 +47,20 @@ angular
 
         return defered.promise;
       }, 
+
       authorizeCurrentUserForRoute: function(role) {
         if (mvIdentity.isAuthorized(role)) {
           return true;
         } else {
           return $q.reject('not authorized');
+        }
+      },
+      
+      autorizeAuthenticatedUserForRoute: function() {
+        if (mvIdentity.isAuthenticated()) {
+          return true;
+        } else {
+          return $q.reject('not authenticated');
         }
       }
     }
