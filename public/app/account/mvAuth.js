@@ -36,6 +36,21 @@ angular
         return defered.promise;
       },
 
+      updateCurrentUser: function() {
+        var defered = $q.defer();
+
+        var clone = angular.copy(mvIdentity.currentUser);
+
+        angular.extend(clone, newUserData);
+
+        clone.$update().then(function() {
+          mvIdentity.currentUser = clone;
+          defered.resolve();
+        }, function(response) {
+          defered.reject(response.data.reason)
+        });
+      },
+
       logoutUser: function() {
         var defered = $q.defer();
         $http.post('/logout', {
@@ -55,7 +70,7 @@ angular
           return $q.reject('not authorized');
         }
       },
-      
+
       autorizeAuthenticatedUserForRoute: function() {
         if (mvIdentity.isAuthenticated()) {
           return true;
