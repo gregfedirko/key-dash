@@ -38,6 +38,10 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
     .when('/typing', {
       templateUrl: 'partials/typing/typing',
       controller: 'mvTypingController'
+    })
+    .when('/dashboard', {
+      templateUrl: 'partials/dashboard/dashboard',
+      controller: 'mvDashBoardController'
     });
     
 });
