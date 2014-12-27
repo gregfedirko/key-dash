@@ -17,8 +17,6 @@ angular
         newUserData.password = $scope.password;
       }
 
-      debugger;
-
       mvAuth.updateCurrentUser(newUserData).then(function() {
         mvNotifier.notify('Your user information has been updated');
       }, function(reason) {
