@@ -1,0 +1,5 @@
+.container
+  h1 Typing
+  input(ng-keypress="keyPress($event)" ng-keydown="keyDown($event)")
+  pre
+    span(ng-repeat="char in promptStack track by $index" ng-class="{'current': $index===inputStack.length, 'incorrect': inputStack[$index][1] === undefined ? false : !inputStack[$index][1]}") {{char[0]}}

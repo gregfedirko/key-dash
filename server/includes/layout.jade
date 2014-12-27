@@ -1,14 +1,15 @@
 doctype
 
-html
+html(ng-app='app')
   head
     link(href="/favicon.ico", rel="shortcut icon", type="image/x-icon")
     link(rel="stylesheet", href="/css/bootstrap.css")
     link(rel="stylesheet", href="/vendor/toastr/toastr.css")
     link(rel="stylesheet", href="/css/site.css")
+    link(rel="stylesheet", href="/css/typing.css")
     base(href="/")
 
-  body(ng-app='app')
+  body
     include currentUser
     block main-content
     include scripts

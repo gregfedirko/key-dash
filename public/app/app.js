@@ -34,6 +34,10 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
       templateUrl: 'partials/account/profile',
       controller: 'mvProfileController',
       resolve: routeRoleChecks.user.auth
+    })
+    .when('/typing', {
+      templateUrl: 'partials/typing/typing',
+      controller: 'mvTypingController'
     });
     
 });
