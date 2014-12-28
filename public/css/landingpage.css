@@ -1,0 +1,118 @@
+body {
+  background-color: #111;
+  padding-top: 50px;
+}
+
+.container {
+  min-width: 800px;
+}
+
+.everything {
+  position: relative;
+  background-color: #fff;
+  margin-bottom: 250px;
+  z-index: 10;
+}
+.feature-section {
+  background-color: #E74C3C;
+}
+.feature-block {
+  width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: center;
+}
+
+.feature-item {
+  display: inline-block;
+  width: 250px;
+  height: 200px;
+  color: #fff;
+  padding: 25px;
+}
+
+.section {
+  padding: 50px 0;
+}
+
+.section h1 {
+  text-align: center;
+}
+
+.section-content {
+  text-align: center;
+  padding: 70px 0 170px;
+}
+
+.section-welcome {
+  padding-bottom: 0;
+  height: 100%;
+}
+
+.section-programmers {
+  background-color: #20c2b5;
+  padding-bottom: 0;
+
+}
+.section-challenges {
+  background-color: #fccd36;
+  padding-bottom: 0;
+
+}
+.section-progress {
+  background-color: #ff4557;
+  padding-bottom: 0;
+}
+
+.navbar {
+  background-color: #fff;
+}
+
+.fill {
+  height: 500px;
+}
+
+.footer-logo {
+  margin: 20px;
+}
+
+.sitefooter {
+  background: #111;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.sitefooter h1 {
+  margin-bottom: 100px;
+}
+
+
+/* #Sun Flower Button
+==================================================*/
+.sun-flower-button {
+  position: relative;
+  margin: 30px 0;
+  vertical-align: top;
+  width: 225px;
+  height: 60px;
+  padding: 0;
+  font-size: 22px;
+  color: white;
+  text-align: center;
+  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
+  background: #f1c40f;
+  border: 0;
+  border-bottom: 2px solid #e2b607;
+  cursor: pointer;
+  -webkit-box-shadow: inset 0 -2px #e2b607;
+  box-shadow: inset 0 -2px #e2b607;
+}
+.sun-flower-button:active {
+  top: 1px;
+  outline: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}

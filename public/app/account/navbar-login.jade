@@ -1,14 +1,12 @@
 .navbar-right(ng-controller="mvNavbarController")
   ul.nav.navbar-nav.navbar-left
     li
-      a(href="/typing") Typing
-    li
-      a(href="/dashboard") Dash Board
+      a(href="/exercises") Excercises
   ul.nav.navbar-nav.navbar-left(ng-hide="identity.isAuthenticated()")
     li
-      a(href="/login") Log In
+      a(href="/signup") CREATE FREE ACCOUNT       
     li
-      a(href="/signup") Sign Up        
+      a(href="/login") Log In
   ul.nav.navbar-nav.navbar-right(ng-show="identity.isAuthenticated()")
     li.dropdown
       a.dropdown.toggle(href="", data-toggle="dropdown")
