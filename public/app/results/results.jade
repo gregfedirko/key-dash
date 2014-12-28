@@ -1,0 +1,12 @@
+.container
+  h1 wpm: {{wpm | number:2}}
+  h1 wastedKeyStrokes: {{wastedKeyStrokes}}
+  h1 errorPercentage: {{errorPercentage | percentage:2}}
+  div(ng-show="identity.isAuthenticated()")
+    button.btn.btn-success(ng-click="saveResults()") Save
+    a(href="/")
+      button.btn Discard
+  div(ng-hide="identity.isAuthenticated()")
+    h3 Sign up now to record your progress
+    a(href="/signup")
+      button.btn.btn-primary Sign Up

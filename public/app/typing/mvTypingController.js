@@ -1,12 +1,9 @@
 (function() {
   angular
     .module('app')
-    .controller('mvTypingController', ['$scope', '$sce', 'dataService', 'mvExercises', '$routeParams', MainController]);
+    .controller('mvTypingController', ['$scope', '$location', '$sce', 'dataService', 'mvExerciseDataService', 'mvExercises', '$routeParams', MainController]);
 
-      function MainController($scope, $sce, dataService, mvExercises, $routeParams) {
-        $scope.foo = function() {
-          console.log('foo');
-        }
+      function MainController($scope, $location, $sce, dataService, mvExerciseDataService, mvExercises, $routeParams) {
 
         $scope.inputStack = [];
         $scope.promptStack = [];
@@ -19,7 +16,7 @@
         $scope.wastedKeyCount = null;
         $scope.error = null;
 
-        $scope.active = true;
+        $scope.active = false;
 
 
         activate();
@@ -29,19 +26,6 @@
             initializeSession(exercise.content);
           });
         }
-
-        // function activate() {
-        //   dataService.getData()
-        //   .then(success, failure);
-
-        //   function success(data) {
-        //     initializeSession(data);
-        //   }
-
-        //   function failure(data) {
-        //     initializeSession(data);
-        //   }
-        // }
 
         function initializeSession(promptString) {
           $scope.wordCount = getWordCount(promptString);
@@ -86,12 +70,24 @@
             // Handle TAB
           } else if($event.keyCode === 9) {
             $event.preventDefault();
+          } 
+
+          // Handle alt + q
+
+          else if ($event.keyCode === 81 && $event.altKey) {
+            endSession();
           }
+
+
+        }
+        $scope.startSession = function() {
+          $scope.active = true;
+          $scope.clock.start();  
         }
 
         $scope.keyPress = function($event) {
           if (!$scope.active) {
-            return false;
+            $scope.startSession();
           }
           $event.preventDefault();
           $scope.keyCount++;
@@ -115,28 +111,30 @@
         }
 
 
-        $scope.startSession = function() {
-          $scope.active = true;
-          $scope.clock.start();  
-        }
 
         function endSession() {
           $scope.clock.stop();
-          $scope.wordsPerMinute = getWordsPerMinute();
-          $scope.wastedKeyCount = getWastedKeyStrokes();
-          $scope.error = getError();
+          mvExerciseDataService.setData({
+            wpm: getWordsPerMinute(),
+            wastedKeyStrokes: getWastedKeyStrokes(),
+            errorPercentage: getError()
+          });
+          $location.path('/results');
         }
 
         function getWordsPerMinute() {
-          return $scope.wordCount/($scope.clock.seconds/60);
+          //assume an average word length of 5:
+          return ($scope.inputStack.length/5) / ($scope.clock.seconds/60);
+
+          // return $scope.wordCount/($scope.clock.seconds/60);
         }
 
         function getWastedKeyStrokes() {
-          return $scope.keyCount - $scope.promptStack.length - 1;
+          return $scope.keyCount - $scope.inputStack.length;
         }
 
         function getError() {
-          return ($scope.errorCount/$scope.promptStack.length);
+          return ($scope.errorCount/$scope.inputStack.length);
 
         }
 
