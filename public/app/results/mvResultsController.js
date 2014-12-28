@@ -9,7 +9,11 @@
       $scope.wastedKeyStrokes = mvExerciseDataService.wastedKeyStrokes;
 
       $scope.saveResults = function() {
-        mvExerciseDataService.save();
+        mvExerciseDataService.save({
+          wpm: $scope.wpm,
+          errorPercentage: $scope.errorPercentage,
+          wastedKeyStrokes: $scope.wastedKeyStrokes
+        });
       };
     })
 })();

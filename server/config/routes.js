@@ -8,6 +8,9 @@ module.exports = function(app) {
   app.post('/api/users', users.createUser);
   app.put('/api/users', users.updateUser);
 
+  app.post('/api/scores', users.addScore);
+  app.get('/api/scores', users.getScores);
+
   app.get('/api/exercises', exercises.getExercises);
   app.get('/api/exercises/:id', exercises.getExerciseById);
 

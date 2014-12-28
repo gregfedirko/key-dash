@@ -58,6 +58,27 @@ exports.updateUser = function(req, res) {
 }
 
 
+exports.addScore = function(req, res) {
+  console.log(req.body.score);
+  console.log(req.user);
+  var newScore = req.body.score;
+  User.findById(req.user._id, function(error, user) {
+    if (!error) {
+      user.scores.push(newScore);
+      user.save();
+      res.end();
+    }
+  });
+};
+
+exports.getScores = function(req, res) {
+  User.findById(req.user._id, function(error, user) {
+    if (!error) {
+      res.send(user.scores);
+    }
+  })
+}
+
 
 
 

@@ -1,7 +1,7 @@
 (function() {
   angular
     .module('app')
-    .factory('mvExerciseDataService', function() {
+    .factory('mvExerciseDataService', function(mvScores) {
       var service = {};
 
       service.setData = function(dataHash) {
@@ -10,8 +10,9 @@
         if (dataHash.wastedKeyStrokes) { service.wastedKeyStrokes = dataHash.wastedKeyStrokes; };
       };
 
-      service.save = function() {
-        console.log('save');
+      service.save = function(dataHash) {
+        console.log(dataHash);
+        mvScores.save({score: dataHash});
       }
 
       return service;
