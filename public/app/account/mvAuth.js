@@ -73,12 +73,14 @@ angular
         }
       },
 
-      autorizeAuthenticatedUserForRoute: function() {
+      authorizeAuthenticatedUserForRoute: function() {
         if (mvIdentity.isAuthenticated()) {
           return true;
         } else {
           return $q.reject('not authenticated');
         }
       }
+
+      
     }
   });

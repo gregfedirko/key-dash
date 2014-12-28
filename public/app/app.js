@@ -1,15 +1,15 @@
-angular.module('app', ['ngResource', 'ngRoute']);
+angular.module('app', ['ngResource', 'ngRoute', 'chart.js']);
 
 angular.module('app').config(function($routeProvider, $locationProvider) {
   var routeRoleChecks = {
     admin: {
       auth: function(mvAuth) {
-        return mvAuth.autorizeCurrentUserForRoute('admin');
+        return mvAuth.authorizeCurrentUserForRoute('admin');
       }
     }, 
     user: {
       auth: function(mvAuth) {
-        return mvAuth.autorizeAuthenticatedUserForRoute();
+        return mvAuth.authorizeAuthenticatedUserForRoute();
       }
     }, 
 
@@ -67,6 +67,7 @@ angular.module('app').run(function($rootScope, $location) {
     if (rejection === 'not authorized') {
       $location.path('/');
     }
+
   })
 })
 
