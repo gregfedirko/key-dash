@@ -44,7 +44,8 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
       controller: 'mvTypingController'
     })
     .when('/exercises', {
-      templateUrl: 'partials/exercises/exercises'
+      templateUrl: 'partials/exercises/exercises',
+      controller: 'mvExercisesController'
     })
     .when('/dashboard', {
       templateUrl: 'partials/dashboard/dashboard',

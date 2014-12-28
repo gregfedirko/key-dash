@@ -1,2 +1,7 @@
 .container
   h1 Exercises
+  ul
+    li(ng-repeat="ex in exercises")
+      div
+        a(href="/exercise:{{ex.id}}") 
+          h3 {{ex.title}}, {{ex.language}}, {{ex.lines}} lines
