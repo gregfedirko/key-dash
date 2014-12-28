@@ -1,5 +1,5 @@
 body {
-  background-color: #111;
+  background-color: #fff;
   padding-top: 50px;
 }
 
@@ -83,10 +83,11 @@ body {
   left: 0;
   right: 0;
   z-index: 1;
+  height: 250px;
 }
 
 .sitefooter h1 {
-  margin-bottom: 100px;
+  margin-top: 100px;
 }
 
 
