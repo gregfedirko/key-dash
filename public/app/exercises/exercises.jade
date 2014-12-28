@@ -3,5 +3,5 @@
   ul
     li(ng-repeat="ex in exercises")
       div
-        a(href="/exercise:{{ex.id}}") 
+        a(href="/exercises/{{ex._id}}") 
           h3 {{ex.title}}, {{ex.language}}, {{ex.lines}} lines

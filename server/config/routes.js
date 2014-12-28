@@ -9,6 +9,7 @@ module.exports = function(app) {
   app.put('/api/users', users.updateUser);
 
   app.get('/api/exercises', exercises.getExercises);
+  app.get('/api/exercises/:id', exercises.getExerciseById);
 
   app.get('/partials/*', function(req, res) {
     res.render('../../public/app/' + req.params[0]);

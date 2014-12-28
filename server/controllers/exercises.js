@@ -6,3 +6,9 @@ exports.getExercises = function(req, res) {
     res.send(collection);
   });
 };
+
+exports.getExerciseById = function(req, res) {
+  Exercise.findOne({_id: req.params.id}).exec(function(err, exercise) {
+    res.send(exercise);
+  });
+}

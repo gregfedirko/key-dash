@@ -1,9 +1,9 @@
 (function() {
   angular
     .module('app')
-    .controller('mvTypingController', ['$scope', '$sce', 'dataService', MainController]);
+    .controller('mvTypingController', ['$scope', '$sce', 'dataService', 'mvExercises', '$routeParams', MainController]);
 
-      function MainController($scope, $sce, dataService) {
+      function MainController($scope, $sce, dataService, mvExercises, $routeParams) {
         $scope.foo = function() {
           console.log('foo');
         }
@@ -25,17 +25,23 @@
         activate();
 
         function activate() {
-          dataService.getData()
-          .then(success, failure);
-
-          function success(data) {
-            initializeSession(data);
-          }
-
-          function failure(data) {
-            initializeSession(data);
-          }
+          mvExercises.get({_id: $routeParams.id}, function(exercise) {
+            initializeSession(exercise.content);
+          });
         }
+
+        // function activate() {
+        //   dataService.getData()
+        //   .then(success, failure);
+
+        //   function success(data) {
+        //     initializeSession(data);
+        //   }
+
+        //   function failure(data) {
+        //     initializeSession(data);
+        //   }
+        // }
 
         function initializeSession(promptString) {
           $scope.wordCount = getWordCount(promptString);

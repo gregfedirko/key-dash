@@ -3,18 +3,9 @@
     .module('app')
     .controller('mvExercisesController', mvExercisesController);
 
-    function mvExercisesController($scope) {
+    function mvExercisesController($scope, mvExercises) {
 
-      $scope.exercises = [
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-        {title: "throttle", lines: "16", language: "javascript", id: 4},
-
-      ];
+      $scope.exercises = mvExercises.query();
 
     }
 
