@@ -9,7 +9,7 @@ module.exports = function(config) {
 
   db.on('error', console.error.bind(console, 'connection error...'));
   db.once('open', function callback() {
-    console.log('multivision db opened');
+    console.log('MongoDB opened');
   });
 
   userModel.createDefaultUsers();

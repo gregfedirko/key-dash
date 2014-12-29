@@ -3,15 +3,24 @@
     .module('app')
     .controller('mvDashBoardController', mvDashBoardController);
 
-  function mvDashBoardController($scope) {
-
-    $scope.labels = ["January", "February", "March", "April", "May", "June", "July"];
+  function mvDashBoardController($scope, mvScores) {
+    $scope.labels = [];
     $scope.series = ['wpm', 'error', 'wasted keys'];
     $scope.data = [
-      [65, 59, 80, 81, 56, 55, 40],
-      [4, 52, 26, 68, 54, 28, 90],
-      [28, 48, 40, 19, 86, 27, 90]
+      [],
+      [],
+      []
     ];
+
+    mvScores.query(function(scores) {
+      _.forEach(scores, function(score, index) {
+        $scope.labels.push(index);
+        $scope.data[0].push(score.wpm);
+        $scope.data[1].push(score.errorPercentage * 100);
+        $scope.data[2].push(score.wastedKeyStrokes);
+      })
+    });
+
   }
 
 })();
