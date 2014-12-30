@@ -1,29 +1,54 @@
 var mongoose = require('mongoose');
-
+var Promise = require('bluebird');
+var join = Promise.join;
+var fs = Promise.promisifyAll(require('fs'));
+var path = require('path');
 var exerciseSchema = mongoose.Schema({
   title: {type: String},
   language: {type: String},
-  lines: {type: Number},
-  content: {type: String},
+  content: {type: String}
 });
 
 var Exercise = mongoose.model('Exercise', exerciseSchema);
 
 function createDefaultExercises() {
-  var newExercise = {
-    title: "Default function",
-    language: "JavaScript",
-    lines: 8,
-    content: "var createAssigner = function(keysFunc) {\n  return function(obj) {\n    var length = arguments.length;\n    if (length < 2 || obj == null) return obj;\n    for (var index = 0; index < length; index++) {\n      var source = arguments[index],\n          keys = keysFunc(source),\n          l = keys.length;\n      for (var i = 0; i < l; i++) {\n       var key = keys[i];\n        obj[key] = source[key];\n     }\n   }   return obj;\n  };\n};"
+  var fileTypeMap = {
+    'js': 'Java Script',
+    'py': 'Python',
+    'rb': 'Ruby'
   }
+  var directory = './exercise_files';
+  fs.readdirAsync(directory).map(function(fileName) {
+    console.log(fileName);
+    var fileParts = fileName.split('.');
+    var title = fileParts[0]
+                  .replace('-', ' ')
+                  .replace(/(?:^|\s)\S/g, function(a) { return a.toUpperCase(); });
+    var language = fileTypeMap[fileParts[1]];
 
-  Exercise.find({}).exec(function(error, collection) {
-    if (collection.length === 0) {
-      Exercise.create(newExercise);
-    }
+    var contents = fs.readFileAsync(directory + '/' + fileName, 'utf-8')
+                      .catch(function ignore() {});
+                      
+    return join(contents, function(contents) {
+      return {
+        title: title,
+        language: language,
+        content: contents
+      };
+    })
+    
+  }).then(function(exerciseObjectArray) {
+
+    Exercise.find({}).exec(function(error, collection) {
+      if (collection.length === 0) {
+        for (var i = 0; i < exerciseObjectArray.length; i++) {
+          Exercise.create(exerciseObjectArray[i]);
+        }
+      }
+    });
+    
   });
 }
-
 
 exports.createDefaultExercises = createDefaultExercises;
 

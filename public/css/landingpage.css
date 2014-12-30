@@ -43,9 +43,9 @@ body {
 
 .feature-item {
   display: inline-block;
-  width: 210px;
-  height: 210px;
-  margin: 20px;
+  width: 190px;
+  height: 190px;
+  margin: 30px;
 }
 
 .for-programmers {
@@ -74,7 +74,7 @@ body {
 .track-progress:hover {
   background-color: #B993FF;
   cursor: pointer;
-  
+
 }
 .section {
   padding: 50px 0;
