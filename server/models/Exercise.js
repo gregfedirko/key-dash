@@ -17,7 +17,7 @@ function createDefaultExercises() {
 
 
       var fileTypeMap = {
-        'js': 'Java Script',
+        'js': 'JavaScript',
         'py': 'Python',
         'rb': 'Ruby'
       }

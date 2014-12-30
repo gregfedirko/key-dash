@@ -1,11 +1,11 @@
 body {
-  background-color: #fff;
+  background-color: #EEEEEE;
   padding-top: 50px;
   font-family: 'bebas_neueregular';
 }
 
 .container {
-  min-width: 800px;
+  width: 1000px;
 }
 
 .try-it-now {

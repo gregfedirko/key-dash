@@ -5,6 +5,57 @@ footer {
 footer p {
   border-top: 1px solid #d7e0e2;
 }
+.exercises-container {
+  width: 920px;
+  margin: 0 auto;
+}
+.exercises-footer {
+  height: 100px;
+  background-color: #30343f;
+  margin-top: 40px;
+}
+.title {
+  width: 180px;
+  margin: 0 auto 10px;
+  border-bottom: 4px solid #30343f;
+  text-align: center;
+}
+.title h1 {
+  padding: 0;
+  color: #30343f;
+  margin: 50px 0 0 0;
+}
+.exercise {
+  display: inline-block;
+  width: 200px;
+  background-color: #fbfbfb;
+  margin: 14px;
+}
+.exercise img {
+  display: inline-block;
+  width: 25px;
+  margin: 5px 10px 5px 5px;
+  height: auto;
+}
+.exercise-header {
+  width: 100%;
+  text-align: center;
+  background-color: #fff;
+  padding: 10px;
+}
+.exercise-header span {
+  color: #9b9b9b;
+  line-height: 25px;
+  position: relative;
+  top: 5px;
+  height: 25px;
+  font-size: 25px;
+}
+.exercise-body {
+  width: 100%;
+  text-align: center;
+  padding: 20px 0 40px;
+}
 .navbar {
   background-color: #30343f;
   font-size: 1.6em;
