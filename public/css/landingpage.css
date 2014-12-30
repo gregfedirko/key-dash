@@ -1,20 +1,31 @@
 body {
   background-color: #fff;
   padding-top: 50px;
+  font-family: 'bebas_neueregular';
 }
 
 .container {
   min-width: 800px;
 }
 
+.try-it-now {
+  width: 180px;
+  height: auto;
+  margin: 40px auto 60px;
+}
+
 .everything {
   position: relative;
-  background-color: #fff;
+  background-color: #EEEEEE;
   margin-bottom: 250px;
   z-index: 10;
 }
+.feature-title-section {
+  background-color: #FFF;
+  color: #30343F;
+}
 .feature-section {
-  background-color: #E74C3C;
+  background-color: #30343F;
 }
 .feature-block {
   width: 800px;
@@ -23,14 +34,48 @@ body {
   text-align: center;
 }
 
-.feature-item {
+.feature-title {
   display: inline-block;
   width: 250px;
-  height: 200px;
-  color: #fff;
-  padding: 25px;
+  height: 80px;
+  padding: 5px;
 }
 
+.feature-item {
+  display: inline-block;
+  width: 210px;
+  height: 210px;
+  margin: 20px;
+}
+
+.for-programmers {
+  background-color: #A6E22E;
+}
+.for-programmers:hover {
+  background-color: #CDF975;
+  cursor: pointer;
+}
+
+.exercises {
+  background-color: #66D9EF;
+}
+.exercises:hover {
+  background-color: #95E2F1;
+  cursor: pointer;
+
+}
+
+.track-progress {
+  background-color: #AE81FF;
+  cursor: pointer;
+
+}
+
+.track-progress:hover {
+  background-color: #B993FF;
+  cursor: pointer;
+  
+}
 .section {
   padding: 50px 0;
 }
@@ -41,7 +86,6 @@ body {
 
 .section-content {
   text-align: center;
-  padding: 70px 0 170px;
 }
 
 .section-welcome {
@@ -64,9 +108,6 @@ body {
   padding-bottom: 0;
 }
 
-.navbar {
-  background-color: #fff;
-}
 
 .fill {
   height: 500px;
@@ -90,30 +131,3 @@ body {
   margin-top: 100px;
 }
 
-
-/* #Sun Flower Button
-==================================================*/
-.sun-flower-button {
-  position: relative;
-  margin: 30px 0;
-  vertical-align: top;
-  width: 225px;
-  height: 60px;
-  padding: 0;
-  font-size: 22px;
-  color: white;
-  text-align: center;
-  text-shadow: 0 1px 2px rgba(0, 0, 0, 0.25);
-  background: #f1c40f;
-  border: 0;
-  border-bottom: 2px solid #e2b607;
-  cursor: pointer;
-  -webkit-box-shadow: inset 0 -2px #e2b607;
-  box-shadow: inset 0 -2px #e2b607;
-}
-.sun-flower-button:active {
-  top: 1px;
-  outline: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}

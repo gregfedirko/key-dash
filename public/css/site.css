@@ -5,6 +5,35 @@ footer {
 footer p {
   border-top: 1px solid #d7e0e2;
 }
+.navbar {
+  background-color: #30343f;
+  font-size: 1.6em;
+  height: 65px;
+}
+.nav > li > a {
+  color: #eee;
+  line-height: 65px;
+  height: 65px;
+  padding-top: 0;
+}
+.nav > li > a:hover,
+.nav > li > a:focus {
+  background-color: #30343f;
+  color: #f92672;
+}
+.try-now-button:hover {
+  fill: #eee;
+}
+.slogan {
+  width: 600px;
+  margin-top: 20px;
+  height: auto;
+}
+.icon {
+  width: 150px;
+  margin: 30px;
+  height: auto;
+}
 .navbar-form .form-group {
   margin-left: 10px;
 }
