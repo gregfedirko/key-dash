@@ -1,6 +1,10 @@
 .incorrect {
-  background-color: #f00;
+  background-color: #f92672;
 }
 .current {
-  background-color: #008000;
+  background-color: #55f7bd;
+}
+pre {
+  font-size: 1em;
+  margin-top: 20px;
 }

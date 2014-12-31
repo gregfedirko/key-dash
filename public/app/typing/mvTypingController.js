@@ -1,9 +1,9 @@
 (function() {
   angular
     .module('app')
-    .controller('mvTypingController', ['$scope', '$location', '$sce', 'dataService', 'mvExerciseDataService', 'mvExercises', '$routeParams', MainController]);
+    .controller('mvTypingController', ['$rootScope','$scope', '$location', '$sce' , '$window', 'mvExerciseDataService', 'mvExercises', '$routeParams', MainController]);
 
-      function MainController($scope, $location, $sce, dataService, mvExerciseDataService, mvExercises, $routeParams) {
+      function MainController($rootScope, $scope, $location, $sce, $window, mvExerciseDataService, mvExercises, $routeParams) {
 
         $scope.inputStack = [];
         $scope.promptStack = [];
@@ -18,11 +18,38 @@
 
         $scope.active = false;
 
+        $scope.imgSrcMap = {
+          "JavaScript": "../../img/javascript-logo-50.png",
+          "Ruby": "../../img/ruby-logo-50.png",
+          "Python": "../../img/python-logo-50.png"
+        }
+
+
+        $scope.$on('keypress-q', function(event) {
+          // console.log(event);
+          $scope.keyPress(event);
+        })
+
+
+        // angular.element($window).on('keypress', function(event) {
+        //   console.log(event);
+        // });
+
+        // angular.element(window).on('keypress', function(ev) {
+          // console.log(ev);
+          // $scope.keyPress(ev);
+          // $rootScope.$broadcast('keypress-q');
+        // });
+        // angular.element($window).on('keydown', $scope.keyDown(event));
+
+
+
 
         activate();
 
         function activate() {
           mvExercises.get({_id: $routeParams.id}, function(exercise) {
+            $scope.language = exercise.language;
             initializeSession(exercise.content);
           });
         }

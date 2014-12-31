@@ -7,6 +7,28 @@ body {
 .container {
   width: 1000px;
 }
+.container:focus {
+  outline: 0;
+}
+
+.typing {
+  width: 100%;
+  height:100vh;
+  position: fixed;
+}
+
+.title img {
+  position: relative;
+  margin-bottom: -15px;
+  top: -17px;
+  left: -2px;
+  width: 35px;
+}
+
+.timer {
+  display: inline-block;
+  margin-left: 50px;
+}
 
 .try-it-now {
   width: 180px;
