@@ -161,7 +161,7 @@
         }
 
         function getError() {
-          return ($scope.errorCount/$scope.inputStack.length);
+          return ($scope.errorCount/$scope.keyCount);
 
         }
 

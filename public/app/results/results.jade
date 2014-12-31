@@ -1,16 +1,18 @@
 .container
   .title
     h1 Results
-  h1 wpm: {{wpm | number:2}}
-  h1 wastedKeyStrokes: {{wastedKeyStrokes}}
-  h1 errorPercentage: {{errorPercentage | percentage:2}}
-  //- div(ng-show="identity.isAuthenticated()")
-  div
-    button.btn.btn-success(ng-click="saveResults()") Save
-    a(href="/")
-      button.btn Discard
-  //- div(ng-hide="identity.isAuthenticated()")
-  div
-    h3 Sign up now to record your progress
-    a(href="/signup")
-      button.btn.btn-primary Sign Up
+  .well
+    h1  <span class="metric wpm">{{wpm | number:0}}</span> words per minute
+    h1  <span class="metric strokes">{{wastedKeyStrokes || "0"}}</span> wasted key strokes
+    h1  <span class="metric error">{{errorPercentage | percentage:2}}</span> incorrect
+    hr
+    div.results-controls(ng-show="identity.isAuthenticated()")
+      button.btn.btn-success.btn-results(ng-click="saveResults()") Save
+      a(href="exercises")
+        button.btn.btn-danger.btn-results Discard
+    div.results-controls(ng-hide="identity.isAuthenticated()")
+      h3 Sign up now to record your progress
+      a(href="/signup")
+        button.btn.btn-success.btn-results Sign Up
+      a(href="/exercises")
+        button.btn.btn-primary.btn-results Exercises
