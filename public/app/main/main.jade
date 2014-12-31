@@ -33,9 +33,10 @@
     .container
       h1 20+ Excercises
       .fill
-  section.section.section-progress
+  section.section.section-progress(scroll triggerheight="1700" trigger="triggerFunction()")
     .container
       h1 Track Your Progress
+      canvas(id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series")
       .fill
 footer.sitefooter.text-center
   h1

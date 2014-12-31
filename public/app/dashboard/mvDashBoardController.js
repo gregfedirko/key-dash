@@ -13,6 +13,7 @@
     ];
 
     mvScores.query(function(scores) {
+      console.log(scores);
       _.forEach(scores, function(score, index) {
         $scope.labels.push(index);
         $scope.data[0].push(score.wpm);
