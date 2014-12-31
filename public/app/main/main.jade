@@ -11,37 +11,68 @@
         .feature-title
           h2 Built for programmers
         .feature-title
-          h2 20+ Excercises
+          h2 25+ Excercises
         .feature-title
           h2 Track your progress
     .feature-section
       .feature-block
-        div.feature-item.for-programmers
-          img.icon(src="../../img/for-coders-icon.png")
+        a(href="#programmers" du-smooth-scroll)
+          div.feature-item.for-programmers
+            img.icon(src="../../img/for-coders-icon.png")
+        a(href="#exercises" du-smooth-scroll)
+          div.feature-item.exercises
+            img.icon(src="../../img/exercises-icon.png")
+        a(href="#progress" du-smooth-scroll)
+          div.feature-item.track-progress
+            img.icon(src="../../img/track-progress-icon.png")
 
-        div.feature-item.exercises
-          img.icon(src="../../img/exercises-icon.png")
-
-        div.feature-item.track-progress
-          img.icon(src="../../img/track-progress-icon.png")
-
-  section.section.section-programmers
+  section#programmers.section.section-programmers
     .container
       h1 Built for Programmers
-      .fill
-  section.section.section-challenges
-    .container
-      h1 20+ Excercises
-      .fill
-  section.section.section-progress(scroll triggerheight="1700" trigger="triggerFunction()")
+      .for-programmers-description
+        p.
+          practice typing in 3 different languages while focusing on speed and accuracy
+      ul
+        li
+          h1.feature-language.javascript Javascript
+        li 
+          h1.feature-language.python Python
+        li 
+          h1.feature-language.ruby Ruby
+  section#exercises.section.section-challenges
+      h1 Over 25 exercises to choose from
+      .container
+        .exercises-container
+          div.exercise
+            .exercise-header
+              img(src="../../img/javascript-logo-50.png")
+              span.exercise-language JavaScript
+            .exercise-body
+              h3 Each
+          div.exercise
+            .exercise-header
+              img(src="../../img/python-logo-50.png")
+              span.exercise-language Python
+            .exercise-body
+              h3 Itsys
+          div.exercise
+            .exercise-header
+              img(src="../../img/javascript-logo-50.png")
+              span.exercise-language JavaScript
+            .exercise-body
+              h3 Throttle
+          div.exercise
+            .exercise-header
+              img(src="../../img/ruby-logo-50.png")
+              span.exercise-language Ruby
+            .exercise-body
+              h3 Engine
+
+  section#progress.section.section-progress(scroll triggerheight="1500" trigger="triggerFunction()")
     .container
       h1 Track Your Progress
       canvas(id="line" class="chart chart-line" data="data" labels="labels" legend="true" series="series")
-      .fill
 footer.sitefooter.text-center
-  h1
-    span.footer-logo Key Dash
-    a(href="#") Built
-    span  by 
-    a(href="#") Greg Fedirko
+  h1 Check out the project on  
+    a(href="https://github.com/gregfedirko/key-dash") github
 

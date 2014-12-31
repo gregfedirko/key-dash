@@ -1,4 +1,4 @@
-angular.module('app', ['ngResource', 'ngRoute', 'chart.js']);
+angular.module('app', ['ngResource', 'ngRoute', 'chart.js', 'duScroll']);
 
 angular.module('app').config(function($routeProvider, $locationProvider) {
   var routeRoleChecks = {
