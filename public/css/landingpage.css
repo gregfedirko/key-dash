@@ -31,9 +31,16 @@ body {
 }
 
 .try-it-now {
-  width: 180px;
-  height: auto;
+  width: 250px;
+  height: 125px;
+  background-image:url("../img/try-now-250.png");
   margin: 40px auto 60px;
+}
+
+.try-it-now:hover {
+  -webkit-transition: opacity 1s ease-in-out;
+  background-image:url("../img/try-now-250-hover.png");
+
 }
 
 .everything {
