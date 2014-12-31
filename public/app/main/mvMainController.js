@@ -1,5 +1,9 @@
-angular.module('app').controller('mvMainController', function($scope, $window, $location, $routeParams) {
+angular.module('app').controller('mvMainController', function($scope, $window, $location, $routeParams, mvIdentity) {
 
+  // if (!mvIdentity.isAuthenticated()) {
+  //   $location.path('/dashboard');
+  //   if(!$scope.$$phase) $scope.$apply()
+  // }
 
   $scope.labels = [1,2,3,4,5,6,7];
   $scope.series = ['wpm', 'error', 'wasted keys'];

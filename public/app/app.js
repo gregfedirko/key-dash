@@ -19,7 +19,19 @@ angular.module('app').config(function($routeProvider, $locationProvider) {
   $routeProvider
     .when('/', {
       templateUrl: '/partials/main/main', 
-      controller: 'mvMainController'
+      controller: 'mvMainController',
+      resolve: {
+        load: function($q, mvIdentity){
+          var defer = $q.defer();
+          if(!mvIdentity.isAuthenticated()){
+            defer.resolve();
+          } else {
+            defer.reject("logged in");
+          }
+          return defer.promise;
+
+        }
+      }
     })
     .when('/admin/users', {
       templateUrl: 'partials/admin/user-list',
@@ -66,6 +78,8 @@ angular.module('app').run(function($rootScope, $location) {
   $rootScope.$on('$routeChangeError', function(event, current, previous, rejection) {
     if (rejection === 'not authorized') {
       $location.path('/');
+    } else if (rejection === 'logged in') {
+      $location.path('/dashboard')
     }
 
   })
