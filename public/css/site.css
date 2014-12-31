@@ -5,6 +5,10 @@ footer {
 footer p {
   border-top: 1px solid #d7e0e2;
 }
+.well {
+  width: 600px;
+  margin: 20px auto 0;
+}
 .exercises-container {
   width: 920px;
   margin: 0 auto;

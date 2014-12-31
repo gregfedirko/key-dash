@@ -2,6 +2,6 @@
   .container
     .title
       img(src="{{imgSrcMap[language]}}")
-      h1.timer | {{clock.seconds | formatTimer}}
+      h1.timer   {{clock.seconds | formatTimer}}
     pre
       span(ng-repeat="char in promptStack track by $index" ng-class="{'current': $index===inputStack.length, 'incorrect': inputStack[$index][1] === undefined ? false : !inputStack[$index][1]}") {{char[0]}}
