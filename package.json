@@ -1,7 +1,7 @@
 {
-  "name": "multiview",
+  "name": "keydash",
   "version": "0.0.0",
-  "description": "",
+  "description": "typing practice for programmers",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"

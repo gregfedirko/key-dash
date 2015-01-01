@@ -13,7 +13,7 @@ module.exports = function(config) {
     console.log('MongoDB opened');
   });
 
-  userModel.createDefaultUsers();
+  // userModel.createDefaultUsers();
   exerciseModel.createDefaultExercises();
 
 };
