@@ -10,7 +10,7 @@ angular
           $scope.password = "";
           $location.path('/');
         } else {
-          mvNotifier.notify('username/password combination incorrect');
+          mvNotifier.error('username/password combination incorrect');
         }
       });
     }
