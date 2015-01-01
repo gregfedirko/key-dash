@@ -42,7 +42,7 @@ footer p {
 }
 .exercises-container {
   width: 920px;
-  margin: 0 auto;
+  margin: 0 auto 100px;
 }
 .exercises-footer {
   height: 100px;
