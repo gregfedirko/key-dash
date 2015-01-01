@@ -1,6 +1,8 @@
 var path = require('path');
 var rootPath = path.normalize(__dirname + '/../../');
 
+var MONGO_URI = process.env.MONGO_URI;
+
 module.exports = {
   development: {
     rootPath: rootPath,
@@ -10,7 +12,7 @@ module.exports = {
   }, 
   production: {
     rootPath: rootPath,
-    db: 'mongodb://gregfedirko:keydash@ds029051.mongolab.com:29051/heroku_app32684760',
+    db: MONGO_URI,
     port: process.env.PORT || 80
   }
 }
