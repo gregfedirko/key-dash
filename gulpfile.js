@@ -7,10 +7,9 @@ var concat = require('gulp-concat');
 
 
 var stylus = require('gulp-stylus');
+var concatCss = require('gulp-concat-css');
+var minifyCSS = require('gulp-minify-css');
 
-gulp.task('default', function() {
-
-});
 
 gulp.task('js', function() {
 
@@ -38,10 +37,23 @@ gulp.task('stylus', function() {
   console.log('compiling stylus');
   return gulp.src('public/css/*.styl')
       .pipe(stylus())
-      .pipe(gulp.dest('public/css'));
+      .pipe(gulp.dest('public/css'))
+});
+
+gulp.task('stylus-build', function() {
+  return gulp.src('public/css/*.styl')
+      .pipe(stylus())
+      .pipe(concatCss('style.css'))
+      .pipe(minifyCSS({keepBreaks:true}))
+      .pipe(gulp.dest('public/build'));
 });
 
 gulp.task('watch', function() {
   gulp.watch('public/css/*.styl', ['stylus']);
 });
+
+gulp.task('build', ['js', 'stylus-build']);
+gulp.task('default', ['watch']);
+
+
 
