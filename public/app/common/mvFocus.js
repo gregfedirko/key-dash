@@ -1,5 +1,10 @@
 (function() {
-  angular.module('app').directive('ngFocus', function($timeout) {
+  'use strict';
+  angular
+  .module('app')
+  .directive('ngFocus', ngFocus);
+
+  function ngFocus($timeout) {
     return {
       link: function ( scope, element, attrs ) {
         scope.$watch( attrs.ngFocus, function ( val ) {
@@ -16,5 +21,5 @@
         });
       }
     };
-  });
+  }
 })();
