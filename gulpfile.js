@@ -40,9 +40,14 @@ gulp.task('stylus', function() {
       .pipe(gulp.dest('public/css'))
 });
 
-gulp.task('stylus-build', function() {
-  return gulp.src('public/css/*.styl')
-      .pipe(stylus())
+gulp.task('css', function() {
+  return gulp.src(
+        [
+          'public/css/*.css', 
+          "/vendor/angular-chart.js/dist/angular-chart.css", 
+          "/vendor/toastr/toastr.css"
+        ]
+      )
       .pipe(concatCss('style.css'))
       .pipe(minifyCSS({keepBreaks:true}))
       .pipe(gulp.dest('public/build'));
@@ -52,7 +57,7 @@ gulp.task('watch', function() {
   gulp.watch('public/css/*.styl', ['stylus']);
 });
 
-gulp.task('build', ['js', 'stylus-build']);
+gulp.task('build', ['js', 'stylus', 'css']);
 gulp.task('default', ['watch']);
 
 
