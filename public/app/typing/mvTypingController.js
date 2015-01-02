@@ -1,7 +1,7 @@
 (function() {
   angular
     .module('app')
-    .controller('mvTypingController', ['$rootScope','$scope', '$location', '$sce' , '$window', 'mvExerciseDataService', 'mvExercises', '$routeParams', MainController]);
+    .controller('mvTypingController', MainController);
 
       function MainController($rootScope, $scope, $location, $sce, $window, mvExerciseDataService, mvExercises, $routeParams) {
 
