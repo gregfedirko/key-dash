@@ -5,7 +5,8 @@
 
   angular
     .module('app')
-    .factory('mvNotifier', function(mvToastr) {
+    .factory('mvNotifier', mvNotifier);
+    function mvNotifier(mvToastr) {
       return {
         notify: function(msg) {
           mvToastr.success(msg);
@@ -14,5 +15,5 @@
           mvToastr.error(msg);
         }
       }
-    });
+    }
 })();
