@@ -1,7 +1,9 @@
 (function() {
   angular
     .module('app')
-    .controller('mvMainController', function($scope, $window, $location, $routeParams, mvIdentity) {
+    .controller('mvMainController', mvMainController);
+
+    function mvMainController($scope, $window, $location, $routeParams, mvIdentity) {
 
     // if (!mvIdentity.isAuthenticated()) {
     //   $location.path('/dashboard');
@@ -30,5 +32,5 @@
         ];
       }
     }
-  });
+  }
 })();
