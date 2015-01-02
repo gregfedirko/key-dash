@@ -1,4 +1,5 @@
 (function() {
+  'use strict';
   angular
     .module('app')
     .filter('percentage', percentage);
@@ -14,6 +15,7 @@
 })();
 
 (function() {
+  'use strict';
   angular
     .module('app')
       .filter('formatTimer', formatTimer)
