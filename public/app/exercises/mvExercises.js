@@ -7,5 +7,5 @@
       var ExercisesResource = $resource('/api/exercises/:_id', {_id: "@id"});
 
       return ExercisesResource;
-    });
+    };
 })();
