@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .controller('mvUserListController', function($scope, mvUser) {
+    .controller('mvUserListController', mvUserListController);
+
+    function mvUserListController($scope, mvUser) {
       $scope.users = mvUser.query();
-    });
+    }
 })();
