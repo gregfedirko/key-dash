@@ -1,5 +1,7 @@
 var gulp = require('gulp');
 
+var ngAnnotate = require('gulp-ng-annotate');
+var streamqueue = require('streamqueue');
 var uglify = require('gulp-uglify');
 var concat = require('gulp-concat');
 
@@ -11,10 +13,25 @@ gulp.task('default', function() {
 });
 
 gulp.task('js', function() {
-  return gulp.src('public/app/**/*.js')
-      .pipe(uglify())
+
+  var paths = [
+    "public/vendor/lodash/dist/lodash.js",
+    "public/vendor/jquery/dist/jquery.js",
+    "public/vendor/angular/angular.js",
+    "public/vendor/Chart.js/Chart.js",
+    "public/vendor/angular-chart.js/dist/angular-chart.js",
+    "public/vendor/toastr/toastr.js",
+    "public/vendor/angular-resource/angular-resource.js",
+    "public/vendor/angular-route/angular-route.js",
+    "public/vendor/angular-scroll/angular-scroll.js",
+    "public/vendor/bootstrap/dist/js/bootstrap.js",
+    'public/app/**/*.js'
+  ];
+  return gulp.src(paths)
       .pipe(concat('app.js'))
-      .pipe(gulp.dest('build'));
+      .pipe(ngAnnotate())
+      .pipe(uglify())
+      .pipe(gulp.dest('public/build'));
 });
 
 gulp.task('stylus', function() {
