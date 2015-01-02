@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .factory('mvIdentity', function($window, mvUser) {
+    .factory('mvIdentity', mvIdentity); 
+
+    function mvIdentity($window, mvUser) {
       var currentUser;
       if (!!$window.bootstrappedUserObject) {
         currentUser = new mvUser();
@@ -16,5 +19,6 @@
           return !!this.currentUser && this.currentUser.roles.inxexOf(role) > -1;
         }
       }
-    });
+    }
+    
 })();

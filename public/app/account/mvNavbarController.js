@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .controller('mvNavbarController', function($scope, $http, $location, mvIdentity, mvNotifier, mvAuth) {
+    .controller('mvNavbarController', mvNavbarController); 
+
+    function mvNavbarController($scope, $http, $location, mvIdentity, mvNotifier, mvAuth) {
       $scope.identity = mvIdentity;
 
       $scope.signout = function() {
@@ -13,5 +16,5 @@
         });
       }
 
-    });
+    }
 })();

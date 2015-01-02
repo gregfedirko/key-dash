@@ -1,8 +1,11 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .factory('mvScores', function($resource) {
+    .factory('mvScores', mvScores);
+
+    function mvScores($resource) {
       var ScoreResource = $resource('/api/scores');
       return ScoreResource;
-    });
+    }
 })();

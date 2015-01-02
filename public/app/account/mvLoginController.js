@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .controller('mvLoginController', function($scope, $http, $location, mvIdentity, mvNotifier, mvAuth) {
+    .controller('mvLoginController', mvLoginController);
+
+    function mvLoginController($scope, $http, $location, mvIdentity, mvNotifier, mvAuth) {
       $scope.identity = mvIdentity;
       $scope.signin = function(username, password) {
         mvAuth.authenticateUser(username, password).then(function(success) {
@@ -15,5 +18,5 @@
           }
         });
       }
-    });
+    }
 })();

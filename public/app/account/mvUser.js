@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .factory('mvUser', function($resource) {
+    .factory('mvUser', mvUser); 
+
+    function mvUser($resource) {
       var UserResource = $resource('/api/users/:id', {_id: "@id"}, {
         update: {
           method: 'PUT',
@@ -12,8 +15,7 @@
       UserResource.prototype.isAdmin = function() {
         return this.roles && this.roles.indexOf('admin') > -1;
       }
-
       return UserResource;
+    }
 
-    })
 })();

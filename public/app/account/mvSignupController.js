@@ -1,7 +1,10 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .controller('mvSignUpController', function($scope, mvAuth, mvUser, $location, mvNotifier) {
+    .controller('mvSignUpController', mvSignUpController);
+
+    function mvSignUpController($scope, $location,  mvAuth, mvUser, mvNotifier) {
       $scope.signup = function() {
         var newUserData = {
           username: $scope.email,
@@ -17,5 +20,5 @@
           mvNotifier.error(reason);
         });
       }
-    });
+    }
 })();

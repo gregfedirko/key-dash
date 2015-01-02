@@ -1,7 +1,9 @@
 (function() {
+  'use strict';
   angular
     .module('app')
-    .controller('mvProfileController', function($scope, mvAuth, mvIdentity, mvNotifier) {
+    .controller('mvProfileController', mvProfileController); 
+    function mvProfileController($scope, mvAuth, mvIdentity, mvNotifier) {
       debugger;
       $scope.email = mvIdentity.currentUser.username;
       $scope.fname = mvIdentity.currentUser.firstName;
@@ -24,5 +26,5 @@
           mvNotifier.error(reason);
         });
       }; 
-    });
+    }
 })();
