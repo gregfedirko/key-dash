@@ -1,7 +1,8 @@
 (function() {
   angular
     .module('app')
-    .controller('mvResultsController', function($scope, $location, mvExerciseDataService, mvIdentity) {
+    .controller('mvResultsController', mvResultsController);
+    function mvResultsController ($scope, $location, mvExerciseDataService, mvIdentity) {
       $scope.identity = mvIdentity;
       
       $scope.wpm = mvExerciseDataService.wpm;
@@ -16,5 +17,5 @@
         });
         $location.path('/dashboard');
       };
-    })
+    }
 })();
