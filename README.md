@@ -1,4 +1,4 @@
-##[keydash.herokuapp.com](keydash.herokuapp.com)
+##[keydash.herokuapp.com](http://keydash.herokuapp.com/)
 
 Key Dash is an application that allows programmers to practice and improve their typing speed.  It is a more built out version of an MVP project I made called [Typr]().  The code style is inspired by John Papa's [AngularJS Style Guide](https://github.com/johnpapa/angularjs-styleguide)
 
