@@ -44,7 +44,7 @@ Exercises for this application are contained in ```exercise_files```, When the a
 
   Contents:
   ```
-  console.log('Hello World');
+  print "Hello World"
   ```
 
   After seeding the database, this file would be stored in a mongo document like so:
@@ -53,7 +53,7 @@ Exercises for this application are contained in ```exercise_files```, When the a
   {
     fileName: 'Key Dash Exercise',
     language: 'Python',
-    contents: 'console.log(\'Hello World\');'
+    contents: 'print "Hello World"'
   }
   ```
 
